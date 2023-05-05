@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 const char* dgemv_desc = "Basic implementation of matrix-vector multiply.";
 
 /*
