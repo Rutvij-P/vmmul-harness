@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 
     // we purposefully run the smallest problem twice so as to "condition"
     // BLAS. For timing purposes, ignore the timing of the first problem size
-    std::vector<int> test_sizes{1024, 1024, 2048, 4096, 8192, 16384};
+    std::vector<int> test_sizes{1024, 2048, 4096, 8192, 16384};
 
     int n_problems = test_sizes.size();
 
@@ -80,34 +80,34 @@ int main(int argc, char** argv)
            // load up matrics with some random numbers
     /* For each test size */
     for (int n : test_sizes) 
-    {
-        printf("Working on problem size N=%d \n", n);
+ {
+    printf("Working on problem size N=%d \n", n);
 
-        fill(A, n * n);
-        fill(X, n );
-        fill(Y, n );
+    fill(A, n * n);
+    fill(X, n );
+    fill(Y, n );
 
-        // make copies of A, B, C for use in verification of results
-        memcpy((void *)Acopy, (const void *)A, sizeof(double)*n*n);
-        memcpy((void *)Xcopy, (const void *)X, sizeof(double)*n);
-        memcpy((void *)Ycopy, (const void *)Y, sizeof(double)*n);
+    memcpy((void *)Acopy, (const void *)A, sizeof(double)*n*n);
+    memcpy((void *)Xcopy, (const void *)X, sizeof(double)*n);
+    memcpy((void *)Ycopy, (const void *)Y, sizeof(double)*n);
 
-        // insert start timer code here
+    // start timer
+    auto start = std::chrono::high_resolution_clock::now();
 
-        // call the method to do the work
-        my_dgemv(n, A, X, Y); 
+    // call the method to do the work
+    my_dgemv(n, A, X, Y); 
 
-        // insert end timer code here, and print out the elapsed time for this problem size
+    // end timer
+    auto end = std::chrono::high_resolution_clock::now();
+    auto elapsed_time = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "Elapsed time for problem size N=" << n << ": " << elapsed_time.count() << " ns\n";
 
+    reference_dgemv(n, Acopy, Xcopy, Ycopy);
 
-        // now invoke the cblas method to compute the matrix-vector multiplye
-        reference_dgemv(n, Acopy, Xcopy, Ycopy);
-
-        // compare your result with that computed by BLAS
-        if (check_accuracy(Ycopy, Y, n) == false)
-           printf(" Error: your answer is not the same as that computed by BLAS. \n");
-    
-    } // end loop over problem sizes
+    if (check_accuracy(Ycopy, Y, n) == false)
+       printf(" Error: your answer is not the same as that computed by BLAS. \n"); 
+  }
+ // end loop over problem sizes
 
     return 0;
 }
