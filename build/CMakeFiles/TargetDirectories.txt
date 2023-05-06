@@ -1,0 +1,7 @@
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/rebuild_cache.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/benchmark-openmp.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/benchmark-blas.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/edit_cache.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/benchmark-vectorized.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/benchmark-basic.dir
+/global/homes/j/jivtur/vmmul-harness/build/CMakeFiles/benchmark.dir
