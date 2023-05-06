@@ -13,17 +13,13 @@ const char* dgemv_desc = "OpenMP dgemv.";
  */
 
 void my_dgemv(int n, double* A, double* x, double* y) {
-
-   #pragma omp parallel
-   {
-      int nthreads = omp_get_num_threads();
-      int thread_id = omp_get_thread_num();
-      printf("Hello world: thread %d of %d checking in. \n", thread_id, nthreads);
+   #pragma omp parallel for
+   for (int i = 0; i < n; i++) {
+      double sum = 0.0;
+      for (int j = 0; j < n; j++) {
+         sum += A[i*n+j] * x[j];
+      }
+      #pragma omp atomic
+      y[i] += sum;
    }
-
-   // insert your dgemv code here. you may need to create additional parallel regions,
-   // and you may want to comment out the above parallel code block that prints out
-   // nthreads and thread_id so as to not taint your timings
-
 }
-
