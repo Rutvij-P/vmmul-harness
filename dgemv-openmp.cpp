@@ -5,7 +5,7 @@
 
 const char* dgemv_desc = "OpenMP dgemv.";
 
-void my_dgemv(int n, double* A, double* x, double* y, int mode) {
+void my_dgemv(int n, double* A, double* x, double* y) {
    switch (mode) {
       case 0: // my_dgemv_outer
          #pragma omp parallel for
