@@ -53,8 +53,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/benchmark-outerloop.dir/DependInfo.cmake"
   "CMakeFiles/benchmark-openmp.dir/DependInfo.cmake"
+  "CMakeFiles/benchmark-innerloop.dir/DependInfo.cmake"
   "CMakeFiles/benchmark-blas.dir/DependInfo.cmake"
+  "CMakeFiles/benchmark-nestedloop.dir/DependInfo.cmake"
   "CMakeFiles/benchmark-vectorized.dir/DependInfo.cmake"
   "CMakeFiles/benchmark-basic.dir/DependInfo.cmake"
   "CMakeFiles/benchmark.dir/DependInfo.cmake"

@@ -128,6 +128,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named benchmark-outerloop
+
+# Build rule for target.
+benchmark-outerloop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 benchmark-outerloop
+.PHONY : benchmark-outerloop
+
+# fast build rule for target.
+benchmark-outerloop/fast:
+	$(MAKE) -f CMakeFiles/benchmark-outerloop.dir/build.make CMakeFiles/benchmark-outerloop.dir/build
+.PHONY : benchmark-outerloop/fast
+
+#=============================================================================
 # Target rules for targets named benchmark-openmp
 
 # Build rule for target.
@@ -141,6 +154,19 @@ benchmark-openmp/fast:
 .PHONY : benchmark-openmp/fast
 
 #=============================================================================
+# Target rules for targets named benchmark-innerloop
+
+# Build rule for target.
+benchmark-innerloop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 benchmark-innerloop
+.PHONY : benchmark-innerloop
+
+# fast build rule for target.
+benchmark-innerloop/fast:
+	$(MAKE) -f CMakeFiles/benchmark-innerloop.dir/build.make CMakeFiles/benchmark-innerloop.dir/build
+.PHONY : benchmark-innerloop/fast
+
+#=============================================================================
 # Target rules for targets named benchmark-blas
 
 # Build rule for target.
@@ -152,6 +178,19 @@ benchmark-blas: cmake_check_build_system
 benchmark-blas/fast:
 	$(MAKE) -f CMakeFiles/benchmark-blas.dir/build.make CMakeFiles/benchmark-blas.dir/build
 .PHONY : benchmark-blas/fast
+
+#=============================================================================
+# Target rules for targets named benchmark-nestedloop
+
+# Build rule for target.
+benchmark-nestedloop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 benchmark-nestedloop
+.PHONY : benchmark-nestedloop
+
+# fast build rule for target.
+benchmark-nestedloop/fast:
+	$(MAKE) -f CMakeFiles/benchmark-nestedloop.dir/build.make CMakeFiles/benchmark-nestedloop.dir/build
+.PHONY : benchmark-nestedloop/fast
 
 #=============================================================================
 # Target rules for targets named benchmark-vectorized
@@ -273,6 +312,60 @@ dgemv-blas.cpp.s:
 	$(MAKE) -f CMakeFiles/benchmark-blas.dir/build.make CMakeFiles/benchmark-blas.dir/dgemv-blas.cpp.s
 .PHONY : dgemv-blas.cpp.s
 
+dgemv-innerloop.o: dgemv-innerloop.cpp.o
+
+.PHONY : dgemv-innerloop.o
+
+# target to build an object file
+dgemv-innerloop.cpp.o:
+	$(MAKE) -f CMakeFiles/benchmark-innerloop.dir/build.make CMakeFiles/benchmark-innerloop.dir/dgemv-innerloop.cpp.o
+.PHONY : dgemv-innerloop.cpp.o
+
+dgemv-innerloop.i: dgemv-innerloop.cpp.i
+
+.PHONY : dgemv-innerloop.i
+
+# target to preprocess a source file
+dgemv-innerloop.cpp.i:
+	$(MAKE) -f CMakeFiles/benchmark-innerloop.dir/build.make CMakeFiles/benchmark-innerloop.dir/dgemv-innerloop.cpp.i
+.PHONY : dgemv-innerloop.cpp.i
+
+dgemv-innerloop.s: dgemv-innerloop.cpp.s
+
+.PHONY : dgemv-innerloop.s
+
+# target to generate assembly for a file
+dgemv-innerloop.cpp.s:
+	$(MAKE) -f CMakeFiles/benchmark-innerloop.dir/build.make CMakeFiles/benchmark-innerloop.dir/dgemv-innerloop.cpp.s
+.PHONY : dgemv-innerloop.cpp.s
+
+dgemv-nestedloop.o: dgemv-nestedloop.cpp.o
+
+.PHONY : dgemv-nestedloop.o
+
+# target to build an object file
+dgemv-nestedloop.cpp.o:
+	$(MAKE) -f CMakeFiles/benchmark-nestedloop.dir/build.make CMakeFiles/benchmark-nestedloop.dir/dgemv-nestedloop.cpp.o
+.PHONY : dgemv-nestedloop.cpp.o
+
+dgemv-nestedloop.i: dgemv-nestedloop.cpp.i
+
+.PHONY : dgemv-nestedloop.i
+
+# target to preprocess a source file
+dgemv-nestedloop.cpp.i:
+	$(MAKE) -f CMakeFiles/benchmark-nestedloop.dir/build.make CMakeFiles/benchmark-nestedloop.dir/dgemv-nestedloop.cpp.i
+.PHONY : dgemv-nestedloop.cpp.i
+
+dgemv-nestedloop.s: dgemv-nestedloop.cpp.s
+
+.PHONY : dgemv-nestedloop.s
+
+# target to generate assembly for a file
+dgemv-nestedloop.cpp.s:
+	$(MAKE) -f CMakeFiles/benchmark-nestedloop.dir/build.make CMakeFiles/benchmark-nestedloop.dir/dgemv-nestedloop.cpp.s
+.PHONY : dgemv-nestedloop.cpp.s
+
 dgemv-openmp.o: dgemv-openmp.cpp.o
 
 .PHONY : dgemv-openmp.o
@@ -299,6 +392,33 @@ dgemv-openmp.s: dgemv-openmp.cpp.s
 dgemv-openmp.cpp.s:
 	$(MAKE) -f CMakeFiles/benchmark-openmp.dir/build.make CMakeFiles/benchmark-openmp.dir/dgemv-openmp.cpp.s
 .PHONY : dgemv-openmp.cpp.s
+
+dgemv-outerloop.o: dgemv-outerloop.cpp.o
+
+.PHONY : dgemv-outerloop.o
+
+# target to build an object file
+dgemv-outerloop.cpp.o:
+	$(MAKE) -f CMakeFiles/benchmark-outerloop.dir/build.make CMakeFiles/benchmark-outerloop.dir/dgemv-outerloop.cpp.o
+.PHONY : dgemv-outerloop.cpp.o
+
+dgemv-outerloop.i: dgemv-outerloop.cpp.i
+
+.PHONY : dgemv-outerloop.i
+
+# target to preprocess a source file
+dgemv-outerloop.cpp.i:
+	$(MAKE) -f CMakeFiles/benchmark-outerloop.dir/build.make CMakeFiles/benchmark-outerloop.dir/dgemv-outerloop.cpp.i
+.PHONY : dgemv-outerloop.cpp.i
+
+dgemv-outerloop.s: dgemv-outerloop.cpp.s
+
+.PHONY : dgemv-outerloop.s
+
+# target to generate assembly for a file
+dgemv-outerloop.cpp.s:
+	$(MAKE) -f CMakeFiles/benchmark-outerloop.dir/build.make CMakeFiles/benchmark-outerloop.dir/dgemv-outerloop.cpp.s
+.PHONY : dgemv-outerloop.cpp.s
 
 dgemv-vectorized.o: dgemv-vectorized.cpp.o
 
@@ -338,7 +458,10 @@ help:
 	@echo "... benchmark"
 	@echo "... benchmark-basic"
 	@echo "... benchmark-blas"
+	@echo "... benchmark-innerloop"
+	@echo "... benchmark-nestedloop"
 	@echo "... benchmark-openmp"
+	@echo "... benchmark-outerloop"
 	@echo "... benchmark-vectorized"
 	@echo "... benchmark.o"
 	@echo "... benchmark.i"
@@ -349,9 +472,18 @@ help:
 	@echo "... dgemv-blas.o"
 	@echo "... dgemv-blas.i"
 	@echo "... dgemv-blas.s"
+	@echo "... dgemv-innerloop.o"
+	@echo "... dgemv-innerloop.i"
+	@echo "... dgemv-innerloop.s"
+	@echo "... dgemv-nestedloop.o"
+	@echo "... dgemv-nestedloop.i"
+	@echo "... dgemv-nestedloop.s"
 	@echo "... dgemv-openmp.o"
 	@echo "... dgemv-openmp.i"
 	@echo "... dgemv-openmp.s"
+	@echo "... dgemv-outerloop.o"
+	@echo "... dgemv-outerloop.i"
+	@echo "... dgemv-outerloop.s"
 	@echo "... dgemv-vectorized.o"
 	@echo "... dgemv-vectorized.i"
 	@echo "... dgemv-vectorized.s"
